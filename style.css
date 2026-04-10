@@ -1,0 +1,129 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY MOBILE STYLE */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    max-width: 400px;
+    height: 90vh;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* SCREENS */
+.screen {
+    display: none;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* TITRE */
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #4facfe;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #3a8dde;
+}
+
+/* QUIZ HEADER */
+.quiz-header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ANSWERS */
+.answers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answer-btn {
+    background: #f1f1f1;
+    color: #333;
+}
+
+.answer-btn:hover {
+    background: #ddd;
+}
+
+/* BONNE / MAUVAISE REPONSE */
+.correct {
+    background: #4caf50 !important;
+    color: white;
+}
+
+.incorrect {
+    background: #f44336 !important;
+    color: white;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #4facfe;
+    transition: width 0.4s ease;
+}
+
+/* RESULT SCREEN */
+.result-info {
+    margin: 20px 0;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 500px) {
+    .container {
+        height: 100vh;
+        border-radius: 0;
+    }
+}
