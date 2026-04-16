@@ -18,7 +18,7 @@ const restartButton = document.getElementById("restart-btn");
 const progressBar = document.getElementById("progress");
 
 // Begin question , on peut l'ameliore encore plus de questions
-const quizQuestions = [
+/*const quizQuestions = [
     {
         question: "Une fonction est dite croissante si : ",
         answers: [
@@ -69,8 +69,8 @@ const quizQuestions = [
         //Eto serie de 10 questions 
         question: "Quel langage est principalement utilisé pour structurer une page web ?",
         answers: [
-            { text: "python", correct: false},
-            { text: "HTML", correct: true},
+            { text: "python", correct: false },
+            { text: "HTML", correct: true },
             { text: "C", correct: false },
             { text: "java", correct: false },
         ],
@@ -80,7 +80,7 @@ const quizQuestions = [
 
         question: "Quelle est l’unité de la force ?",
         answers: [
-            { text: "joule", correct: false},
+            { text: "joule", correct: false },
             { text: "Newton", correct: true },
             { text: "Watt", correct: false },
             { text: "volt", correct: false },
@@ -111,7 +111,7 @@ const quizQuestions = [
 
         question: "Dans un circuit en série :",
         answers: [
-            { text: "La tension est la même partout", correct: false},
+            { text: "La tension est la même partout", correct: false },
             { text: "Le courant est le même partout", correct: true },
             { text: "La résistance diminue", correct: false },
             { text: "Le courant se divise", correct: false },
@@ -121,7 +121,7 @@ const quizQuestions = [
     {
         question: "Si la masse augmente et la force reste constante, alors :",
         answers: [
-            { text: "L’accélération augmente", correct: false},
+            { text: "L’accélération augmente", correct: false },
             { text: "L’accélération diminue", correct: true },
             { text: "L’accélération reste constante", correct: false },
             { text: "La force diminue", correct: false },
@@ -154,10 +154,10 @@ const quizQuestions = [
     },
     {
 
-        
+
         question: "Quel protocole est utilisé pour transférer des pages web ?",
         answers: [
-            { text: "FTP", correct: false},
+            { text: "FTP", correct: false },
             { text: "HTTP", correct: true },
             { text: "SMTP", correct: false },
             { text: "SSH", correct: false },
@@ -166,7 +166,7 @@ const quizQuestions = [
     },
     {
 
-        
+
         question: "Dans un circuit en parallèle :",
         answers: [
             { text: "La résistance totale augmente", correct: false },
@@ -191,7 +191,7 @@ const quizQuestions = [
 
         question: "Quelle commande SQL permet d’ajouter des données ?",
         answers: [
-            { text: "ADD", correct: false},
+            { text: "ADD", correct: false },
             { text: "INSERT", correct: true },
             { text: "UPDATE", correct: false },
             { text: "CREATE", correct: false },
@@ -200,12 +200,12 @@ const quizQuestions = [
     },
     {
 
-    
+
         question: "L’unité du courant électrique est :",
         answers: [
             { text: "Volt", correct: false },
             { text: "Ohm", correct: false },
-            { text: "Ampere", correct:true },
+            { text: "Ampere", correct: true },
             { text: "watt", correct: false },
         ],
 
@@ -232,13 +232,23 @@ const quizQuestions = [
         ],
 
     },
-];
+];*/
+let quizQuestions = [];
+
+fetch("questions.json")
+    .then(res => res.json())
+    .then(data => {
+        quizQuestions = data;
+        totalQuestionSpan.textContent = quizQuestions.length;
+        maxScoreSpan.textContent = quizQuestions.length;
+        //startQuiz();
+    });
 //QUIZ START VARS
 let currentQuestionIndex = 0;
 let score = 0;
 let answerDisabled = false;
-totalQuestionSpan.textContent = quizQuestions.length;
-maxScoreSpan.textContent = quizQuestions.length;
+let timeLeft = 10;
+let timerInterval;
 
 //Event listeners
 startButton.addEventListener("click", startQuiz);
@@ -254,6 +264,7 @@ function startQuiz() {
     scoreSpan.textContent = 0;
     startScreen.classList.remove("active");
     quizScreen.classList.add("active");
+    shuffleArray(quizQuestions);
 
     showQuestion()
 }
@@ -261,10 +272,12 @@ function showQuestion() {
     //Reset state
     answerDisabled = false
     const currentQuestion = quizQuestions[currentQuestionIndex]
+    shuffleArray(currentQuestion.answers);
     currentQuestionSpan.textContent = currentQuestionIndex + 1
     const progressPercent = (currentQuestionIndex / quizQuestions.length) * 100;
     progressBar.style.width = progressPercent + "%"
     questionText.textContent = currentQuestion.question
+   
 
     answersContainer.innerHTML = "";
     currentQuestion.answers.forEach(answer => {
@@ -277,12 +290,16 @@ function showQuestion() {
         answersContainer.appendChild(button)
 
     })
+  
+    startTimer();
 
-    function selectAnswer(event) {
+}
+ function selectAnswer(event) {
         //optimisation check
         if (answerDisabled) return
         answerDisabled = true
-       // 
+        stopTimer();
+        // 
 
         const selectedButton = event.target;
         const isCorrect = selectedButton.dataset.correct === "true"
@@ -312,8 +329,60 @@ function showQuestion() {
             }
         }, 1000)
     }
+function autoNextQuestion() {
+    answerDisabled = true;
 
+    // montrer la bonne réponse
+    Array.from(answersContainer.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+    });
 
+    setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizQuestions.length) {
+            showQuestion();
+        } else {
+            showResults();
+        }
+    }, 1000);
+}
+//utilisation  l'algorithme Fisher-Yates
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * i);
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+//
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+//
+function startTimer() {
+    timeLeft = 10;
+    document.getElementById("timer").textContent = timeLeft;
+
+    clearInterval(timerInterval); // sécurité
+
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        document.getElementById("timer").textContent = timeLeft;
+
+        // 
+        if (timeLeft <= 3) {
+            document.getElementById("timer").style.color = "red";
+        } else {
+            document.getElementById("timer").style.color = "black";
+        }
+
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+            autoNextQuestion();
+        }
+    }, 1000);
 }
 function showResults() {
     quizScreen.classList.remove("active")

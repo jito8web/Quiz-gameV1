@@ -1,0 +1,182 @@
+[
+    {
+        "question": "Combien font 5 + 7 ?",
+        "answers": [
+            { "text": "12", "correct": true },
+            { "text": "10", "correct": false },
+            { "text": "11", "correct": false },
+            { "text": "13", "correct": false }
+        ]
+    },
+    {
+        "question": "Quelle est la dérivée de x² ?",
+        "answers": [
+            { "text": "2x", "correct": true },
+            { "text": "x", "correct": false },
+            { "text": "x²", "correct": false },
+            { "text": "1", "correct": false }
+        ]
+    },
+    {
+        "question": "Que signifie CPU ?",
+        "answers": [
+            { "text": "Central Processing Unit", "correct": true },
+            { "text": "Computer Personal Unit", "correct": false },
+            { "text": "Control Processing Unit", "correct": false },
+            { "text": "Central Program Unit", "correct": false }
+        ]
+    },
+    {
+        "question": "Quelle est l’unité de la tension ?",
+        "answers": [
+            { "text": "Volt", "correct": true },
+            { "text": "Ampère", "correct": false },
+            { "text": "Watt", "correct": false },
+            { "text": "Ohm", "correct": false }
+        ]
+    },
+    {
+        "question": "Combien de bits dans un octet ?",
+        "answers": [
+            { "text": "8", "correct": true },
+            { "text": "16", "correct": false },
+            { "text": "4", "correct": false },
+            { "text": "32", "correct": false }
+        ]
+    },
+    {
+        "question": "Quelle est la racine carrée de 81 ?",
+        "answers": [
+            { "text": "9", "correct": true },
+            { "text": "8", "correct": false },
+            { "text": "7", "correct": false },
+            { "text": "6", "correct": false }
+        ]
+    },
+    {
+        "question": "Quel langage est utilisé pour le style web ?",
+        "answers": [
+            { "text": "CSS", "correct": true },
+            { "text": "HTML", "correct": false },
+            { "text": "Python", "correct": false },
+            { "text": "C", "correct": false }
+        ]
+    },
+    {
+        "question": "Quelle est la formule de la vitesse ?",
+        "answers": [
+            { "text": "distance / temps", "correct": true },
+            { "text": "temps × distance", "correct": false },
+            { "text": "masse × vitesse", "correct": false },
+            { "text": "force / masse", "correct": false }
+        ]
+    },
+    {
+        "question": "Combien font 9 × 6 ?",
+        "answers": [
+            { "text": "54", "correct": true },
+            { "text": "56", "correct": false },
+            { "text": "52", "correct": false },
+            { "text": "50", "correct": false }
+        ]
+    },
+    {
+        "question": "Quelle commande permet d’afficher en JavaScript ?",
+        "answers": [
+            { "text": "console.log()", "correct": true },
+            { "text": "print()", "correct": false },
+            { "text": "echo()", "correct": false },
+            { "text": "write()", "correct": false }
+        ]
+    },
+    {
+        "question": "Quelle est l’unité de puissance ?",
+        "answers": [
+            { "text": "Watt", "correct": true },
+            { "text": "Volt", "correct": false },
+            { "text": "Ampère", "correct": false },
+            { "text": "Ohm", "correct": false }
+        ]
+    },
+    {
+        "question": "Combien font 15 - 4 ?",
+        "answers": [
+            { "text": "11", "correct": true },
+            { "text": "10", "correct": false },
+            { "text": "12", "correct": false },
+            { "text": "9", "correct": false }
+        ]
+    },
+    {
+        "question": "Quel protocole pour le web ?",
+        "answers": [
+            { "text": "HTTP", "correct": true },
+            { "text": "FTP", "correct": false },
+            { "text": "SMTP", "correct": false },
+            { "text": "SSH", "correct": false }
+        ]
+    },
+    {
+        "question": "Quelle est l’unité du courant ?",
+        "answers": [
+            { "text": "Ampère", "correct": true },
+            { "text": "Volt", "correct": false },
+            { "text": "Watt", "correct": false },
+            { "text": "Ohm", "correct": false }
+        ]
+    },
+    {
+        "question": "Combien font 7² ?",
+        "answers": [
+            { "text": "49", "correct": true },
+            { "text": "42", "correct": false },
+            { "text": "36", "correct": false },
+            { "text": "45", "correct": false }
+        ]
+    },
+    {
+        "question": "Quel composant stocke temporairement les données ?",
+        "answers": [
+            { "text": "RAM", "correct": true },
+            { "text": "CPU", "correct": false },
+            { "text": "Disque dur", "correct": false },
+            { "text": "GPU", "correct": false }
+        ]
+    },
+    {
+        "question": "Quelle loi relie U, R et I ?",
+        "answers": [
+            { "text": "Loi d’Ohm", "correct": true },
+            { "text": "Newton", "correct": false },
+            { "text": "Pascal", "correct": false },
+            { "text": "Einstein", "correct": false }
+        ]
+    },
+    {
+        "question": "Combien font 20 / 4 ?",
+        "answers": [
+            { "text": "5", "correct": true },
+            { "text": "4", "correct": false },
+            { "text": "6", "correct": false },
+            { "text": "3", "correct": false }
+        ]
+    },
+    {
+        "question": "Quel langage pour base de données ?",
+        "answers": [
+            { "text": "SQL", "correct": true },
+            { "text": "HTML", "correct": false },
+            { "text": "CSS", "correct": false },
+            { "text": "C++", "correct": false }
+        ]
+    },
+    {
+        "question": "Quelle est l’énergie cinétique dépend de ?",
+        "answers": [
+            { "text": "masse et vitesse", "correct": true },
+            { "text": "temps", "correct": false },
+            { "text": "distance", "correct": false },
+            { "text": "température", "correct": false }
+        ]
+    }
+]
