@@ -1,17 +1,30 @@
 
-Day 01 : QUIZ Game
-Video d'apprentissage : 22:28
-Debut : 01/04/2026
-Day 02 : QUIZ Game
-Video d'apprentissage :34:27
-Day 03 : QUIZ Game
-Video d'apprentissage :45:30
-Day 04 : QUIZ Game
-Video d'apprentissage :1:00:35
-Day 05 : QUIZ Game
-Video d'apprentissage :1:02:58
-Day 06 : QUIZ Game
-Video d'apprentissage: Fin
-Remarque:: freesound.org a ete recuperer ici
-
-jito8webjito8web
+Remarque: freesound.org pour les minis song
+date du mise a jours : 16/04/2026
+Mise a jours : QUIZ Game V1.0.1
+jito8web@jito8web
+//
+git init
+  431  git remote add origin https://github.com/jito8web/quiz-game.git
+  432  clear
+  433  git add .
+  434  git commit -m "first commit"
+  435  git branch -M main
+  436  git push -u origin main
+  437  clear
+  438  git remote add origin https://github.com/jito8web/Quiz-gameV1
+  439  git remote add origin https://github.com/jito8web/Quiz-gameV1.git
+  440  git remote -v
+  441  git remote set-url origin https://github.com/jito8web/Quiz-gameV1.git
+  442  git remote -v
+  443  git add .
+  444  git commit -m "first commit"
+  445  clear
+  446  git branch -M main
+  447  git push -u origin main
+  448  clear
+  449  git pull origin main --allow-unrelated-histories
+  450  git push -u origin main
+  451  clear
+  452  git push -u origin main --force
+  453  git push -u origin main

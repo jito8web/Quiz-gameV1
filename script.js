@@ -64,6 +64,174 @@ const quizQuestions = [
             { text: "16", correct: false },
         ],
     },
+    {
+
+        //Eto serie de 10 questions 
+        question: "Quel langage est principalement utilisé pour structurer une page web ?",
+        answers: [
+            { text: "python", correct: false},
+            { text: "HTML", correct: true},
+            { text: "C", correct: false },
+            { text: "java", correct: false },
+        ],
+
+    },
+    {
+
+        question: "Quelle est l’unité de la force ?",
+        answers: [
+            { text: "joule", correct: false},
+            { text: "Newton", correct: true },
+            { text: "Watt", correct: false },
+            { text: "volt", correct: false },
+        ],
+
+    },
+    {
+
+        question: "Quel composant est le “cerveau” de l’ordinateur ?",
+        answers: [
+            { text: "RAM", correct: false },
+            { text: "Disque Dur", correct: false },
+            { text: "CPU", correct: true },
+            { text: "Cart Graphiques", correct: false },
+        ],
+
+    },
+    {   // Utilisation des Unicode pour des puissance
+        question: "Résoudre : 2x² - 4x - 6 = 0",
+        answers: [
+            { text: "x = 3 ou x = -1", correct: true },
+            { text: "x = 1 ou x = -3", correct: false },
+            { text: "x = 2 ou x = -2", correct: false },
+            { text: "x = 0 ou x = 3", correct: false },
+        ],
+    },
+    {
+
+        question: "Dans un circuit en série :",
+        answers: [
+            { text: "La tension est la même partout", correct: false},
+            { text: "Le courant est le même partout", correct: true },
+            { text: "La résistance diminue", correct: false },
+            { text: "Le courant se divise", correct: false },
+        ],
+
+    },
+    {
+        question: "Si la masse augmente et la force reste constante, alors :",
+        answers: [
+            { text: "L’accélération augmente", correct: false},
+            { text: "L’accélération diminue", correct: true },
+            { text: "L’accélération reste constante", correct: false },
+            { text: "La force diminue", correct: false },
+        ],
+
+    },
+    {
+
+
+        question: "Quelle commande SQL permet de supprimer une table ?",
+        answers: [
+            { text: "DELETE", correct: false },
+            { text: "REMOVE", correct: false },
+            { text: "DROP", correct: true },
+            { text: "CLEAR", correct: false },
+        ],
+
+    },
+    {
+
+
+        question: "Quelle structure de données est utilisée pour implémenter un parcours en largeur (BFS) ?",
+        answers: [
+            { text: "Pile (Stack)", correct: false },
+            { text: "File (Queue)", correct: true },
+            { text: "Arbre binaire", correct: false },
+            { text: "Table de hachage", correct: false },
+        ],
+
+    },
+    {
+
+        
+        question: "Quel protocole est utilisé pour transférer des pages web ?",
+        answers: [
+            { text: "FTP", correct: false},
+            { text: "HTTP", correct: true },
+            { text: "SMTP", correct: false },
+            { text: "SSH", correct: false },
+        ],
+
+    },
+    {
+
+        
+        question: "Dans un circuit en parallèle :",
+        answers: [
+            { text: "La résistance totale augmente", correct: false },
+            { text: "La résistance totale diminue", correct: true },
+            { text: "Le courant diminue", correct: false },
+            { text: "La tension change", correct: false },
+        ],
+
+    },
+    {
+
+        question: "Quel langage est principalement utilisé pour le backend ?",
+        answers: [
+            { text: "HTML", correct: false },
+            { text: "CSS", correct: false },
+            { text: "javaScript", correct: false },
+            { text: "php", correct: true },
+        ],
+
+    },
+    {
+
+        question: "Quelle commande SQL permet d’ajouter des données ?",
+        answers: [
+            { text: "ADD", correct: false},
+            { text: "INSERT", correct: true },
+            { text: "UPDATE", correct: false },
+            { text: "CREATE", correct: false },
+        ],
+
+    },
+    {
+
+    
+        question: "L’unité du courant électrique est :",
+        answers: [
+            { text: "Volt", correct: false },
+            { text: "Ohm", correct: false },
+            { text: "Ampere", correct:true },
+            { text: "watt", correct: false },
+        ],
+
+    },
+    {
+
+        question: "Quel système gère la mémoire et les processus ??",
+        answers: [
+            { text: "BIOS", correct: false },
+            { text: "compilateur", correct: false },
+            { text: "Systeme d'exploitations", correct: true },
+            { text: "antivirus", correct: false },
+        ],
+
+    },
+    {
+
+        question: "Si la tension double et le courant reste constant :",
+        answers: [
+            { text: "La puissance est divisée par 2", correct: false },
+            { text: "La puissance reste constante", correct: false },
+            { text: "La puissance double", correct: true },
+            { text: "La puissance est multipliée par 4", correct: false },
+        ],
+
+    },
 ];
 //QUIZ START VARS
 let currentQuestionIndex = 0;
@@ -114,6 +282,7 @@ function showQuestion() {
         //optimisation check
         if (answerDisabled) return
         answerDisabled = true
+       // 
 
         const selectedButton = event.target;
         const isCorrect = selectedButton.dataset.correct === "true"
@@ -129,9 +298,9 @@ function showQuestion() {
             score++;
             scoreSpan.textContent = score
             correctSound.play();
-            correctSound.currentTime=0;
-        }else {
-            wrongSound.currentTime=0;
+            correctSound.currentTime = 0;
+        } else {
+            wrongSound.currentTime = 0;
             wrongSound.play();
         }
         setTimeout(() => {
@@ -170,3 +339,11 @@ function restartQuiz() {
     resultScreen.classList.remove("active");
     startQuiz();
 }
+//Protection simple 
+document.addEventListener("contextmenu", e => e.preventDefault());
+//blocage de F12
+document.onkeydown = function (e) {
+    if (e.key === "F12") {
+        return false;
+    }
+};
